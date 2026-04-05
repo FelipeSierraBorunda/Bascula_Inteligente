@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>NutriGo — Perfil de usuario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ====== GENERALES ====== */
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Contenedor que limita la altura del contenido del perfil */
+    .PerfilContainer{
+      max-width: 420px;
+      width: 100%;
+      height: 85vh;          /* ocupa ~85% del alto de pantalla */
+      overflow: hidden;      /* el contenido no se sale del cuadro */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 70px;   /* espacio para el botón flotante */
+    }
+
+    /* Zona desplazable dentro del contenedor */
+    .PerfilScroll{
+      flex: 1;
+      overflow-y: auto;      /* aquí sucede el scroll interno */
+      padding-bottom: 8px;
+    }
+
+    h1{
+      margin: 0 0 16px 0;
+      color: #78A17C;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .subtitle{
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* ====== CONTENEDOR PRINCIPAL ====== */
+    .card{
+      background: #ffffff;
+      padding: 18px 16px 16px 16px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ====== ENCABEZADO PERFIL ====== */
+    .profile-header{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: #e0efe3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #375a3b;
+      font-size: 1.1rem;
+    }
+
+    .profile-info{
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .profile-name{
+      font-weight: 600;
+      color: #111827;
+      font-size: 1rem;
+    }
+
+    /* ====== SECCIONES ====== */
+    .section-title{
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4b5563;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .section-divider{
+      margin-top: 8px;
+      margin-bottom: 10px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* ====== RESUMEN DE MACROS EN BARRAS ====== */
+    .macro-summary{
+      margin-top: 8px;
+      margin-bottom: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .macro-row{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .macro-label-line{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.8rem;
+    }
+
+    .macro-label{
+      color: #6b7280;
+    }
+
+    .macro-value{
+      color: #111827;
+      font-weight: 500;
+    }
+
+    /* Barra base */
+    .macro-bar{
+      width: 100%;
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    /* Relleno genérico */
+    .macro-bar-fill{
+      height: 100%;
+      width: 0%;                  /* JS actualiza esto */
+      border-radius: inherit;
+      transition: width 0.3s ease-out;
+    }
+
+    /* Colores por macro */
+    .macro-bar-kcal{
+      background: linear-gradient(90deg, #78A17C, #f2c94c, #eb5757);
+    }
+
+    .macro-bar-prote{
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+    }
+
+    .macro-bar-carb{
+      background: linear-gradient(90deg, #f97316, #ea580c);
+    }
+
+    .macro-bar-grasa{
+      background: linear-gradient(90deg, #f43f5e, #e11d48);
+    }
+
+    /* ====== CAMPOS ====== */
+    .form-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 10px;
+    }
+
+    .form-grid.full-width{
+      grid-template-columns: 1fr;
+    }
+
+    .form-field{
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 0.85rem;
+    }
+
+    .form-field label{
+      color: #6b7280;
+    }
+
+    .form-field input,
+    .form-field select{
+      font-family: inherit;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      padding: 6px 8px;
+      box-sizing: border-box;
+      background: #f9fafb;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus{
+      border-color: #78A17C;
+      box-shadow: 0 0 0 1px rgba(120,161,124,0.3);
+      background: #ffffff;
+    }
+
+    /* ====== BOTONES PRINCIPALES ====== */
+    .actions{
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+
+    .btn{
+      flex: 1 1 0 ;
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .btn-primary{
+      background: #78A17C;
+      color: #ffffff;
+      box-shadow: 0 6px 14px rgba(120,161,124,0.35);
+    }
+
+    .btn-secondary{
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .btn:active{
+      transform: scale(0.96);
+    }
+
+    .btn-icon{
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* ====== BOTÓN FLOTANTE ====== */
+    .return-btn{
+      background-color: #78A17C;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .return-btn:active{
+      transform: translateY(-2px) scale(0.97);
+    }
+
+    .helper-text{
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    #espacio{
+      height: 10px;
+    }
+
+    @media (max-width: 480px){
+      body{
+        padding: 16px;
+      }
+      .card{
+        padding: 16px 12px 14px 12px;
+      }
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="PerfilContainer">
+    <div class="PerfilScroll">
+
+      <h1>Perfil de usuario</h1>
+      <div class="subtitle">
+        Revisa o ajusta tus datos personales.
+      </div>
+
+      <!-- CARD 1: encabezado + barras -->
+      <div class="card">
+        <!-- Encabezado -->
+        <div class="profile-header">
+          <div class="avatar" id="avatarIniciales">F</div>
+          <div class="profile-info">
+            <div class="profile-name" id="perfilNombre">Nombre del usuario</div>
+          </div>
+        </div>
+
+        <!-- Resumen en barras -->
+        <div class="macro-summary">
+          <!-- Calorías -->
+          <div class="macro-row">
+            <div class="macro-label-line">
+              <span class="macro-label">Calorías</span>
+              <span class="macro-value" id="perfilKcalTexto">0/2600 kcal</span>
+            </div>
+            <div class="macro-bar">
+              <div class="macro-bar-fill macro-bar-kcal" id="perfilKcalBar"
+                   style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Proteína -->
+          <div class="macro-row">
+            <div class="macro-label-line">
+              <span class="macro-label">Proteína</span>
+              <span class="macro-value" id="perfilProteTexto">0 g</span>
+            </div>
+            <div class="macro-bar">
+              <div class="macro-bar-fill macro-bar-prote" id="perfilProteBar"
+                   style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Carbohidratos -->
+          <div class="macro-row">
+            <div class="macro-label-line">
+              <span class="macro-label">Carbohidratos</span>
+              <span class="macro-value" id="perfilCarbTexto">0 g</span>
+            </div>
+            <div class="macro-bar">
+              <div class="macro-bar-fill macro-bar-carb" id="perfilCarbBar"
+                   style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Grasa -->
+          <div class="macro-row">
+            <div class="macro-label-line">
+              <span class="macro-label">Grasa</span>
+              <span class="macro-value" id="perfilGrasaTexto">0 g</span>
+            </div>
+            <div class="macro-bar">
+              <div class="macro-bar-fill macro-bar-grasa" id="perfilGrasaBar"
+                   style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+      </div>
+
+      <div id="espacio"></div>
+
+      <!-- CARD 2: formulario -->
+      <div class="card">
+        <!-- DATOS PERSONALES -->
+        <div class="section-title">Datos personales</div>
+        <div class="form-grid">
+        <div class="form-field">
+          <label for="campoNombre">Nombre</label>
+          <input id="campoNombre" type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-field">
+          <label for="campoEdad">Edad</label>
+          <input id="campoEdad" type="number" min="0" placeholder="Años" />
+        </div>
+        <div class="form-field">
+          <label for="campoAltura">Altura</label>
+          <input id="campoAltura" type="number" min="0" step="1" placeholder="cm" />
+        </div>
+        <div class="form-field">
+          <label for="campoPeso">Peso</label>
+          <input id="campoPeso" type="number" min="0" step="0.1" placeholder="kg" />
+        </div>
+        <div class="form-field">
+          <label for="campoSexo">Sexo</label>
+          <select id="campoSexo">
+            <option value="">Seleccionar</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Otro / Prefiero no decir</option>
+          </select>
+        </div>
+      </div>
+
+
+        <!-- OBJETIVO -->
+        <div class="section-title">Objetivo</div>
+        <div class="form-grid full-width">
+          <div class="form-field">
+            <label for="metaObjetivo">Meta</label>
+            <select id="metaObjetivo">
+              <option value="">Seleccionar</option>
+              <option value="definicion">Definición</option>
+              <option value="mantener">Mantener</option>
+              <option value="volumen">Volumen</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BOTONES -->
+        <div class="actions">
+        <button class="btn btn-secondary" id="btnEditar">
+           Modificar
+        </button>
+        <button class="btn btn-secondary" id="btnCancelar">
+           Cancelar
+        </button>
+        <button class="btn btn-primary" id="btnGuardar">
+           Guardar
+        </button>
+      </div>
+
+
+      
+      </div>
+
+    </div> <!-- /.PerfilScroll -->
+  </div>   <!-- /.PerfilContainer -->
+
+  <button class="return-btn" onclick="window.location.href='/'">
+    Regresar
+  </button>
+<script>
+  // === Meta kcal global (se actualiza con lo que mande el ESP) ===
+  let META_KCAL = 2600;   // valor por defecto
+
+  // Porcentajes de las calorías totales
+  const PCT_PROT  = 0.35;  // 35% proteína
+  const PCT_GRASA = 0.25;  // 25% grasa
+  const PCT_CARB  = 0.45;  // 45% carbohidratos
+
+  // === Ayuda: activar/desactivar edición ===
+  function setEditable(enabled) {
+    const campos = [
+      'campoNombre',
+      'campoEdad',
+      'campoAltura',
+      'campoPeso',
+      'campoSexo',
+      'metaObjetivo'
+    ];
+
+    campos.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (enabled) {
+        el.removeAttribute('disabled');
+      } else {
+        el.setAttribute('disabled', 'disabled');
+      }
+    });
+
+    const btnGuardar  = document.getElementById('btnGuardar');
+    const btnCancelar = document.getElementById('btnCancelar');
+    if (btnGuardar)  btnGuardar.disabled  = !enabled;
+    if (btnCancelar) btnCancelar.disabled = !enabled;
+  }
+
+  // Pequeña ayuda para sacar un número de varias posibles claves
+  function pickNumber(obj, keys) {
+    for (const k of keys) {
+      if (k in obj) {
+        const v = Number(obj[k]);
+        if (Number.isFinite(v)) return v;
+      }
+    }
+    return null;
+  }
+
+  // === Leer perfil desde el ESP32 ===
+  function fetchPerfilUsuario() {
+    fetch('/perfilUsuario', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(data => {
+        console.log('Perfil recibido desde ESP:', data);
+
+        // Nombre (decodificando por si viene con %20)
+        let nombreRaw = data.nombre || 'Usuario';
+        try {
+          nombreRaw = decodeURIComponent(nombreRaw);
+        } catch (e) {
+          // si no está codificado, no pasa nada
+        }
+
+        const nombre  = nombreRaw;
+        const inicial = nombre.trim().length > 0
+                        ? nombre.trim()[0].toUpperCase()
+                        : 'U';
+
+        const perfilNombre   = document.getElementById('perfilNombre');
+        const avatarIniciales= document.getElementById('avatarIniciales');
+
+        if (perfilNombre)    perfilNombre.textContent    = nombre;
+        if (avatarIniciales) avatarIniciales.textContent = inicial;
+
+        // Campos formulario
+        const campoNombre = document.getElementById('campoNombre');
+        const campoEdad   = document.getElementById('campoEdad');
+        const campoAltura = document.getElementById('campoAltura');
+        const campoPeso   = document.getElementById('campoPeso');
+        const campoSexo   = document.getElementById('campoSexo');
+        const metaObjetivo= document.getElementById('metaObjetivo');
+
+        if (campoNombre) campoNombre.value = nombre;
+
+        const edadVal   = pickNumber(data, ['edad']);
+        const alturaVal = pickNumber(data, ['altura_cm', 'altura']);
+        const pesoVal   = pickNumber(data, ['peso_kg', 'peso']);
+
+        if (campoEdad && edadVal !== null) {
+          campoEdad.value = edadVal;
+        }
+        if (campoAltura && alturaVal !== null) {
+          campoAltura.value = alturaVal;
+        }
+        if (campoPeso && pesoVal !== null) {
+          campoPeso.value = pesoVal;
+        }
+
+        if (campoSexo && typeof data.sexo === 'string' && data.sexo.length > 0) {
+          campoSexo.value = data.sexo;   // 'M','F','O'
+        }
+
+        if (metaObjetivo && typeof data.objetivo === 'string') {
+          metaObjetivo.value = data.objetivo; // definicion/mantener/volumen
+        }
+
+        // Meta kcal textual (tomamos la que viene del ESP)
+        if (Number.isFinite(Number(data.meta_kcal))) {
+          const kcalMeta = Number(data.meta_kcal);
+          META_KCAL = kcalMeta;  // ← meta real usada en las barras
+
+          const textoKcal = document.getElementById('perfilKcalTexto');
+          if (textoKcal) {
+            textoKcal.textContent = `0/${kcalMeta.toFixed(0)} kcal`;
+          }
+        }
+
+        // Bloquear edición después de cargar
+        setEditable(false);
+      })
+      .catch(err => {
+        console.error('Error al leer /perfilUsuario:', err);
+      });
+  }
+
+  // === Barras de macros usando porcentajes de META_KCAL ===
+  function fetchCaloriasPerfil() {
+    fetch('/caloriasDiarias', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(data => {
+        const grasa = Number(data.grasa);
+        const prote = Number(data.prote);
+        const carb  = Number(data.carb);
+        const kcal  = Number(data.kcal);
+
+        // Objetivos en gramos, calculados a partir de META_KCAL y %:
+        //   proteína y carbohidratos → 4 kcal/g
+        //   grasa → 9 kcal/g
+        const META_PROT  = (META_KCAL * PCT_PROT)  / 4.0;
+        const META_CARB  = (META_KCAL * PCT_CARB)  / 4.0;
+        const META_GRASA = (META_KCAL * PCT_GRASA) / 9.0;
+
+        const kcalTexto  = document.getElementById('perfilKcalTexto');
+        const proteTexto = document.getElementById('perfilProteTexto');
+        const carbTexto  = document.getElementById('perfilCarbTexto');
+        const grasaTexto = document.getElementById('perfilGrasaTexto');
+
+        if (kcalTexto && Number.isFinite(kcal)) {
+          kcalTexto.textContent = `${kcal.toFixed(0)}/${META_KCAL.toFixed(0)} kcal`;
+        }
+        if (proteTexto && Number.isFinite(prote)) {
+          proteTexto.textContent = `${prote.toFixed(1)} g`;
+        }
+        if (carbTexto && Number.isFinite(carb)) {
+          carbTexto.textContent = `${carb.toFixed(1)} g`;
+        }
+        if (grasaTexto && Number.isFinite(grasa)) {
+          grasaTexto.textContent = `${grasa.toFixed(1)} g`;
+        }
+
+        function clampPorc(v) {
+          if (!Number.isFinite(v)) return 0;
+          if (v < 0) return 0;
+          if (v > 100) return 100;
+          return v;
+        }
+
+        const barraKcal  = document.getElementById('perfilKcalBar');
+        const barraProte = document.getElementById('perfilProteBar');
+        const barraCarb  = document.getElementById('perfilCarbBar');
+        const barraGrasa = document.getElementById('perfilGrasaBar');
+
+        if (barraKcal && Number.isFinite(kcal) && META_KCAL > 0) {
+          barraKcal.style.width = clampPorc((kcal / META_KCAL) * 100) + '%';
+        }
+        if (barraProte && Number.isFinite(prote) && META_PROT > 0) {
+          barraProte.style.width = clampPorc((prote / META_PROT) * 100) + '%';
+        }
+        if (barraCarb && Number.isFinite(carb) && META_CARB > 0) {
+          barraCarb.style.width = clampPorc((carb / META_CARB) * 100) + '%';
+        }
+        if (barraGrasa && Number.isFinite(grasa) && META_GRASA > 0) {
+          barraGrasa.style.width = clampPorc((grasa / META_GRASA) * 100) + '%';
+        }
+      })
+      .catch(err => {
+        console.error('Error al leer /caloriasDiarias (perfil):', err);
+      });
+  }
+
+  // === Botón Modificar: habilita edición ===
+  document.getElementById('btnEditar').addEventListener('click', () => {
+    setEditable(true);
+  });
+
+  // === Botón Cancelar: recarga datos desde el ESP y bloquea edición ===
+  document.getElementById('btnCancelar').addEventListener('click', () => {
+    fetchPerfilUsuario();
+  });
+
+  // === Botón Guardar: manda todo al ESP ===
+  document.getElementById('btnGuardar').addEventListener('click', () => {
+    const nombre = document.getElementById('campoNombre').value.trim();
+    const edad   = document.getElementById('campoEdad').value.trim();
+    const altura = document.getElementById('campoAltura').value.trim();
+    const peso   = document.getElementById('campoPeso').value.trim();
+    const sexo   = document.getElementById('campoSexo').value;
+    const objetivo = document.getElementById('metaObjetivo').value;
+
+    const url = `/setPerfilUsuario` +
+      `?nombre=${encodeURIComponent(nombre)}` +
+      `&edad=${encodeURIComponent(edad)}` +
+      `&altura=${encodeURIComponent(altura)}` +
+      `&peso=${encodeURIComponent(peso)}` +
+      `&sexo=${encodeURIComponent(sexo)}` +
+      `&objetivo=${encodeURIComponent(objetivo)}`;
+
+    fetch(url, { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(txt => {
+        console.log('Respuesta setPerfilUsuario:', txt);
+        alert('Perfil guardado');
+        fetchPerfilUsuario();   // refrescar con datos oficiales del ESP
+      })
+      .catch(err => {
+        console.error('Error al guardar perfil:', err);
+        alert('No se pudo guardar el perfil');
+      });
+  });
+
+  // === Inicio ===
+  window.addEventListener('load', () => {
+    fetchPerfilUsuario();
+    fetchCaloriasPerfil();
+    setInterval(fetchCaloriasPerfil, 2000);
+  });
+</script>
+
+  
+
+
+
+</body>
+</html>

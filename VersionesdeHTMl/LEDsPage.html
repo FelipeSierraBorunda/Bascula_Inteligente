@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Báscula de salud — ESP32</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --primary:#2e6fd6; --secondary:#5a8df0; --accent:#00b894;
+      --bg:#f5f7fa; --card:#ffffff; --text:#222; --muted:#6c757d;
+      --error:#dc3545; --warn:#ffc107;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; padding:20px; background:var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; color:var(--text)}
+    .container{max-width:560px; margin:0 auto; background:var(--card); padding:28px;
+      border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    h1{margin:0 0 8px; font-size:1.4rem; color:var(--primary)}
+    .sub{margin:0 0 20px; color:var(--muted); font-size:.95rem}
+
+    .display{margin:16px 0 10px; padding:18px; border-radius:14px;
+      background:linear-gradient(135deg,#f7f9fc 0%,#e9eef6 100%);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,.06); text-align:center}
+    .reading{font-size:3rem; font-weight:700; letter-spacing:.5px}
+    .unit{font-size:1.1rem; color:var(--muted); margin-left:6px}
+
+    .row{display:flex; gap:12px; flex-wrap:wrap; margin:14px 0}
+    .row > *{flex:1}
+    .card{background:#fff; border-radius:12px; padding:16px; box-shadow:0 4px 12px rgba(0,0,0,.06)}
+    label{display:block; font-size:.9rem; color:var(--muted); margin-bottom:6px}
+    select{width:100%; padding:10px 12px; border:1px solid #e2e6ee; border-radius:10px; font-size:1rem; outline:none}
+    select:focus{border-color:var(--secondary)}
+    .btn{display:inline-block; border:0; border-radius:28px; padding:12px 18px;
+      background:var(--primary); color:#fff; cursor:pointer; font-weight:600;
+      box-shadow:0 4px 10px rgba(46,111,214,.25); transition:.2s transform}
+    .btn:hover{transform:translateY(-2px); background:var(--secondary)}
+    .btn.warn{background:#ffc107; color:#111}
+    .status{margin-top:14px; padding:12px; border-radius:10px; text-align:center; font-weight:600;
+      opacity:0; transition:opacity .25s ease; min-height:0}
+    .status.show{opacity:1}
+    .status.ok{background:rgba(0,184,148,.12); color:#067a64}
+    .status.err{background:rgba(220,53,69,.12); color:#a30f21}
+    .foot{margin-top:18px; font-size:.85rem; color:var(--muted); text-align:center}
+    .admin-btn{position:fixed; right:20px; bottom:20px; z-index:10; padding:10px 16px}
+  </style>
+</head>
+<!-- ========================================================================================================================================================================================================== -->
+<body>
+  <div class="container" role="main">
+    <h1>Báscula NutriGo</h1>
+    <p class="sub">Teto informacion</p>
+
+    <div class="display" aria-live="polite" aria-atomic="true">
+      <div class="reading">
+        <span id="val">--</span><span class="unit" id="unit">g</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <label for="unidad">Unidad de visualización</label>
+        <select id="unidad" aria-label="Unidad de visualización">
+          <option value="g" selected>Gramos (g)</option>
+          <option value="kg">Kilogramos (kg)</option>
+          <option value="lb">Libras (lb)</option>
+        </select>
+      </div>
+      <div class="card">
+        <label for="decimales">Decimales</label>
+        <select id="decimales" aria-label="Decimales a mostrar">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <label>Acciones</label>
+        <button class="btn warn" onclick="hacerTara()">Tara</button>
+      </div>
+
+      <!-- Tarjeta de nivel de batería -->
+      <div class="card">
+        <label>Nivel de batería</label>
+        <div id="batt-val" style="font-size:1.1rem; font-weight:600;">
+          -- V
+        </div>
+      </div>
+    </div>
+
+    <div id="status" class="status" role="status" aria-live="polite">Lectura actualizada</div>
+    <div class="foot">Administra el dispositivo desde el panel de administrador.</div>
+  </div>
+
+  <button class="btn admin-btn" onclick="location.href='/admin'">Administrador</button>
+
+  <script>
+    // ===== Estado UI
+    let ultimoGramos = null;
+    let ultimaVBateria = null;
+
+    // ===== Conversión de unidades
+    function gTo(unit, g){
+      switch(unit){
+        case 'kg': return g / 1000;
+        case 'lb': return g * 0.00220462262;
+        default:   return g;
+      }
+    }
+
+    function render(){
+      const unitSel = document.getElementById('unidad').value;
+      const dec = parseInt(document.getElementById('decimales').value, 10);
+      const out = document.getElementById('val');
+      const unitLbl = document.getElementById('unit');
+      if(ultimoGramos === null){
+        out.textContent = '--';
+      }else{
+        out.textContent = gTo(unitSel, ultimoGramos).toFixed(dec);
+      }
+      unitLbl.textContent = unitSel;
+    }
+
+    function renderBateria() {
+      const el = document.getElementById('batt-val');
+      if (!el) return;
+      if (ultimaVBateria === null) {
+        el.textContent = '-- V';
+      } else {
+        el.textContent = ultimaVBateria.toFixed(2) + ' V';
+      }
+    }
+
+    // ===== Comunicación con el ESP32
+    function fetchPeso(){
+      fetch('/peso', {cache:'no-store'})
+        .then(r => {
+          if(!r.ok) throw new Error('HTTP');
+          return r.text();
+        })
+        .then(txt => {
+          const v = parseFloat(txt);
+          if (!Number.isFinite(v)) throw new Error('NaN');
+          ultimoGramos = v;
+          render();
+          ok('Lectura actualizada');
+        })
+        .catch(() => err('Dispositivo desconectado'));
+      setTimeout(fetchPeso, 400); // polling
+    }
+
+   function fetchBateria(){
+  fetch('/bateria_vbat', {cache:'no-store'})
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP');
+      return r.text();
+    })
+    .then(txt => {
+      const v = parseFloat(txt);
+      if (!Number.isFinite(v)) throw new Error('NaN');
+      ultimaVBateria = v;
+      renderBateria();
+    })
+    .catch(() => {
+      ultimaVBateria = null;
+      renderBateria();
+    });
+
+    
+}
+
+
+    function hacerTara(){
+      fetch('/Tara', {cache:'no-store'})
+        .then(()=>ok('Tara realizada'))
+        .catch(()=>err('No se pudo realizar la tara'));
+    }
+
+    // ===== Mensajes de estado
+    function setStatus(msg, cls){
+      const el = document.getElementById('status');
+      el.textContent = msg;
+      el.className = 'status show ' + cls;
+      clearTimeout(el._t);
+      el._t = setTimeout(()=>{ el.className = 'status'; }, 2200);
+    }
+    const ok  = (m)=>setStatus(m,'ok');
+    const err = (m)=>setStatus(m,'err');
+
+    // ===== Eventos UI
+    document.getElementById('unidad').addEventListener('change', render);
+    document.getElementById('decimales').addEventListener('change', render);
+
+    // ===== Inicio
+    window.addEventListener('load', () => {
+      render();
+      renderBateria();
+      fetchPeso();
+      setInterval(fetchBateria, 1000); // batería cada 10 s
+    });
+  </script>
+</body>
+</html>

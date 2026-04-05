@@ -1,0 +1,285 @@
+# ninja log v6
+89	324	7862586560039602	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_crc.c.obj	e230a4d897b2858c
+47	643	7862586559605375	esp-idf/log/CMakeFiles/__idf_log.dir/src/log_timestamp_common.c.obj	881855a2df555a99
+328	1549	7862586562474897	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/rtc_init.c.obj	464357986784373b
+128	528	7862586560431427	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_efuse.c.obj	451b3c9dabd0437b
+4793	5728	7862586607099673	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/i2c_periph.c.obj	8c6eaf989da6237c
+142	611	7862586560570520	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_gpio.c.obj	83b717f054da9868
+57	565	7862586559726201	esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_lock.c.obj	33a44a4f6c64308c
+114	685	7862586560289675	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_spiflash.c.obj	2045b25b54c965a
+4052	4926	7862586599682746	esp-idf/soc/CMakeFiles/__idf_soc.dir/dport_access_common.c.obj	89d42537caa5a7b0
+1937	3297	7862586578522053	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/flash_qio_mode.c.obj	bc950a9d7c0c8a64
+2672	4169	7862586585883981	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console_loader.c.obj	9bbe40f271772054
+36	722	7862586559411571	esp-idf/log/CMakeFiles/__idf_log.dir/src/noos/log_timestamp.c.obj	1fe81be077582a57
+67	702	7862586559746305	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj	7eb9e6dc90a4c092
+155	751	7862586560702770	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_systimer.c.obj	96c2eebd621799c2
+101	784	7862586560171225	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_uart.c.obj	e8688ceaebc1a150
+2739	3966	7862586586551945	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32c3/bootloader_sha.c.obj	fb7c48107f342045
+213	856	7862586561286423	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_memory_utils.c.obj	2a965b9a8f2700f3
+198	948	7862586561144323	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/esp_cpu_intr.c.obj	63231bc8b36f01f8
+228	978	7862586561437874	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/cpu_region_protect.c.obj	9225fd1fc999f318
+169	996	7862586560842661	esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj	64a0fbb372dcc3e
+1433	2481	7862586573498514	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_init.c.obj	7380dae007472198
+723	1146	7862586566388388	esp-idf/log/liblog.a	e6f5cc8727869232
+784	2233	7862586567003774	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32c3/esp_efuse_utility.c.obj	6fe904dd6dc1d243
+77	1189	7862586559932407	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_print.c.obj	ced4890b50563f03
+2757	4052	7862586586732123	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32c3/bootloader_soc.c.obj	42a215bd6ba77bf7
+183	1335	7862586560993506	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/cpu.c.obj	3bd1f3ab714bb65a
+1774	2671	7862586576890703	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random_esp32c3.c.obj	38d45f5c5f954359
+2558	3359	7862586584743198	esp-idf/esp_hw_support/libesp_hw_support.a	ad56b580c86d2e9a
+703	1433	7862586566193013	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32c3/esp_efuse_fields.c.obj	412cff540fbbdade
+686	1607	7862586566022998	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32c3/esp_efuse_table.c.obj	e465fccef531c26
+1996	3632	7862586579117434	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash_config_esp32c3.c.obj	323f18b7265c07b1
+611	1690	7862586565271271	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/chip_info.c.obj	80f377a168e3ee0f
+948	1936	7862586568640028	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_fields.c.obj	c9ea2106f13218f5
+644	1710	7862586565596206	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_err.c.obj	f3cd4c09c5b7f493
+4759	5354	7862586606754279	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/sdm_periph.c.obj	ed7a77822c35050b
+1711	3115	7862586576270482	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_encrypt.c.obj	44342e82d537a13b
+3966	4643	7862586598827187	esp-idf/soc/CMakeFiles/__idf_soc.dir/lldesc.c.obj	efc7d40fbf7fe57e
+244	1730	7862586561595880	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/rtc_clk_init.c.obj	62e8971b4b9075e8
+259	1773	7862586561734479	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/rtc_clk.c.obj	655b9f871ae8516e
+752	1793	7862586566678441	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32c3/esp_efuse_rtc_calib.c.obj	7980ca212603064c
+2790	4366	7862586587062710	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_panic.c.obj	cf1d21d8a3c88e85
+529	1995	7862586564453692	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/rtc_sleep.c.obj	24206577948b5484
+1190	2099	7862586571056896	esp-idf/esp_rom/libesp_rom.a	89267fdb5a607462
+565	2268	7862586564810514	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32c3/rtc_time.c.obj	9ba1e977515b0c38
+1550	2509	7862586574659200	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_mem.c.obj	3e3f6877e063cc
+1793	3756	7862586577095910	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash.c.obj	4a7a5dcacd49115e
+857	2538	7862586567729166	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_api.c.obj	8fce4e36bd3deef2
+1730	2603	7862586576460513	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/secure_boot.c.obj	e62ebc8ce0749b0f
+2099	2558	7862586580158229	esp-idf/esp_common/libesp_common.a	39596df693b1ed93
+1607	2790	7862586575249720	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random.c.obj	fbd029d816f38fe2
+3633	4759	7862586595485001	esp-idf/hal/CMakeFiles/__idf_hal.dir/mmu_hal.c.obj	5efb7c91c0d06bfa
+979	2739	7862586568950198	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_utility.c.obj	24e102f2daeb06fc
+1146	2863	7862586570626408	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common.c.obj	bf59e7b80876f6de
+3227	4218	7862586591426175	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32c3/efuse_hal.c.obj	4111b635e6cc969a
+1690	2757	7862586576065283	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_efuse.c.obj	ab7c7e150bddffab
+3176	4550	7862586590919963	esp-idf/hal/CMakeFiles/__idf_hal.dir/efuse_hal.c.obj	b0fe0958019f1d83
+997	2773	7862586569125438	esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/efuse_controller/keys/with_key_purposes/esp_efuse_api_key.c.obj	1e76e3192321958e
+2268	3159	7862586581844567	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_partitions.c.obj	b387d3395ed162dc
+3115	5000	7862586590314527	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj	351f7480beac7575
+1336	3175	7862586572517664	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj	3ace8d871b11b3fc
+2538	3227	7862586584543122	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_loader.c.obj	700b1523217be3f9
+4367	5039	7862586602828741	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/dedic_gpio_periph.c.obj	c61fc253f7aa7309
+2509	4237	7862586584251185	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_init.c.obj	e8ab3b163e0b0511
+2864	3913	7862586587802898	esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj	b5d2bb888f296cf1
+3359	3989	7862586592755110	esp-idf/esp_system/libesp_system.a	e5644c1c828315a5
+2604	4304	7862586585198604	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console.c.obj	4ddf516d08fd5191
+2233	4720	7862586581499081	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_utility.c.obj	270dab57a2a2b54c
+3297	4741	7862586592134404	esp-idf/hal/CMakeFiles/__idf_hal.dir/wdt_hal_iram.c.obj	ef7e7f6bcc8f0ec1
+2773	4776	7862586586887511	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32c3/bootloader_esp32c3.c.obj	7bf1476e26adc2b
+4169	4793	7862586600882334	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/interrupts.c.obj	304145fdbd6945c2
+3757	4889	7862586596729703	esp-idf/hal/CMakeFiles/__idf_hal.dir/cache_hal.c.obj	755b26581f35feb4
+3989	4974	7862586599052626	esp-idf/efuse/libefuse.a	88cb68f430e5cb83
+4305	5066	7862586602208587	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/adc_periph.c.obj	b1a090c1f81638d1
+4238	5259	7862586601537690	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/uart_periph.c.obj	1dbe97d4ed015e41
+4219	5310	7862586601347671	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/gpio_periph.c.obj	f5509a2830fbf30b
+4551	5323	7862586604674213	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/gdma_periph.c.obj	2728e7aec0488fc
+5067	5435	7862586612721182	project_elf_src_esp32c3.c	218c8f2465e1f617
+5067	5435	7862586612721182	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/project_elf_src_esp32c3.c	218c8f2465e1f617
+4777	5505	7862586606924405	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/i2s_periph.c.obj	1f7ce308c52784d3
+7019	7382	7862586629349658	esp-idf/soc/libsoc.a	48c7212433c1ce4c
+5001	5558	7862586609172718	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/twai_periph.c.obj	81fe871dd96448df
+4889	5584	7862586608051967	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/temperature_sensor_periph.c.obj	1916420048d487d8
+4720	5646	7862586606368842	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/ledc_periph.c.obj	41f566a706cb4260
+4741	5681	7862586606569013	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/rmt_periph.c.obj	7e058c65a61d697a
+5040	5683	7862586609562885	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/wdt_periph.c.obj	aeb6a05fcb23f531
+4975	5705	7862586608912265	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/mpi_periph.c.obj	8c38b6c92c5eb27e
+4927	5717	7862586608432059	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/timer_periph.c.obj	e5f391edf12bb58b
+4644	5737	7862586605603349	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32c3/spi_periph.c.obj	1eafb4ab783730f8
+2482	5747	7862586583970730	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp_image_format.c.obj	a7fde366c41b4ee1
+5435	5784	7862586613506622	CMakeFiles/bootloader.elf.dir/project_elf_src_esp32c3.c.obj	fc0f9cd7dd135daa
+3160	5789	7862586590759888	esp-idf/hal/CMakeFiles/__idf_hal.dir/hal_utils.c.obj	81f6d4d7b2dda5a6
+5259	5981	7862586611768138	esp-idf/main/CMakeFiles/__idf_main.dir/bootloader_start.c.obj	8c6cf5bd1f280fd1
+5747	6249	7862586616659415	esp-idf/bootloader_support/libbootloader_support.a	f004ba258d95e324
+6249	6411	7862586621644728	esp-idf/esp_bootloader_format/libesp_bootloader_format.a	b075571ffccd0854
+6411	6574	7862586623272139	esp-idf/spi_flash/libspi_flash.a	1c1daf44243b30e1
+6574	6771	7862586624895360	esp-idf/hal/libhal.a	bad6171fa61e8307
+3914	6874	7862586598297110	esp-idf/micro-ecc/CMakeFiles/__idf_micro-ecc.dir/uECC_verify_antifault.c.obj	389de68c928167c0
+6875	7019	7862586627906887	esp-idf/micro-ecc/libmicro-ecc.a	49432877e9a173b5
+7382	7562	7862586632979823	esp-idf/main/libmain.a	c2981ebe16625302
+7562	8189	7862586634777224	bootloader.elf	af7cf0d65321ac7d
+8189	9095	7862586649963388	.bin_timestamp	29bb7c959707cd56
+8189	9095	7862586649963388	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/.bin_timestamp	29bb7c959707cd56
+9095	9316	7862586650108286	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	e2d471930e4d35d4
+9095	9316	7862586650108286	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	e2d471930e4d35d4
+76	693	7862588218382429	.bin_timestamp	23c27cb093ae0352
+76	693	7862588218382429	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/.bin_timestamp	23c27cb093ae0352
+693	881	7862588218509139	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+693	881	7862588218509139	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	204	7862590592344379	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	204	7862590592344379	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	138	7862590740411921	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	138	7862590740411921	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	209	7862593102793898	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	209	7862593102793898	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+23	173	7862593250564222	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+23	173	7862593250564222	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+29	174	7862695809003266	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+29	174	7862695809003266	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	194	7862699470733170	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	194	7862699470733170	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	165	7862699656436932	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	165	7862699656436932	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+53	244	7862702532760979	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+53	244	7862702532760979	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+25	141	7862702703267158	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+25	141	7862702703267158	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	180	7862709526466364	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	180	7862709526466364	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	239	7862709742027014	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	239	7862709742027014	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	210	7862715839791020	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	210	7862715839791020	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+44	189	7862716497826995	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+44	189	7862716497826995	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	142	7862716655967053	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	142	7862716655967053	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	189	7862718895634566	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	189	7862718895634566	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+30	165	7862719075012938	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+30	165	7862719075012938	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	193	7862722494004988	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	193	7862722494004988	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	152	7862722803028540	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	152	7862722803028540	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	144	7862722835084351	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	144	7862722835084351	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+47	188	7862723471001061	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+47	188	7862723471001061	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	143	7862723504442030	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	143	7862723504442030	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	201	7862725834352659	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	201	7862725834352659	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+30	172	7862725994153066	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+30	172	7862725994153066	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+54	234	7862728578218125	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+54	234	7862728578218125	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	143	7862728730520723	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	143	7862728730520723	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+44	222	7862734671393051	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+44	222	7862734671393051	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	248	7862734707302421	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	248	7862734707302421	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	154	7862734848475446	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	154	7862734848475446	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+51	290	7862739769335322	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+51	290	7862739769335322	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+34	175	7862739956599709	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+34	175	7862739956599709	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+51	203	7862742686069451	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+51	203	7862742686069451	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	224	7862742860104886	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+43	224	7862742860104886	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+132	361	7862781056047885	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+132	361	7862781056047885	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	166	7862781310988441	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	166	7862781310988441	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+64	261	7862788494651305	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+64	261	7862788494651305	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+48	201	7862790127920074	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+48	201	7862790127920074	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	181	7862791303741765	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	181	7862791303741765	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	159	7862791638603419	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	159	7862791638603419	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	182	7862793318749554	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	182	7862793318749554	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	151	7862793468448165	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	151	7862793468448165	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	266	7862800903984350	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	266	7862800903984350	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	148	7862801070513359	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	148	7862801070513359	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+67	348	7862807542693185	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+67	348	7862807542693185	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+32	168	7862807727581465	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+32	168	7862807727581465	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+47	196	7862811275084272	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+47	196	7862811275084272	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	177	7862812207204770	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	177	7862812207204770	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+31	194	7862812390808933	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+31	194	7862812390808933	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+42	205	7862812835771069	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+42	205	7862812835771069	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	147	7862812879807371	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	147	7862812879807371	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+41	167	7862813045732386	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+41	167	7862813045732386	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+61	295	7862813097666037	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+61	295	7862813097666037	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	209	7862813743323448	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+49	209	7862813743323448	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	142	7862813890570157	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	142	7862813890570157	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+69	321	7862818333344701	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+69	321	7862818333344701	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	163	7862818504175030	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	163	7862818504175030	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+52	208	7862821288197593	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+52	208	7862821288197593	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	181	7862821664536894	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+38	181	7862821664536894	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	140	7862821812663598	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+26	140	7862821812663598	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+54	207	7862831757100378	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+54	207	7862831757100378	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+25	145	7862831904821628	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+25	145	7862831904821628	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	203	7862835457606724	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+46	203	7862835457606724	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+31	170	7862835613509198	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+31	170	7862835613509198	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+48	212	7862840075992887	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+48	212	7862840075992887	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+29	166	7862840239328208	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+29	166	7862840239328208	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+50	212	7862844359004828	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+50	212	7862844359004828	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+28	165	7862844507493001	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+28	165	7862844507493001	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+67	270	7862845316539710	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+67	270	7862845316539710	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	147	7862845497579331	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	147	7862845497579331	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	200	7862847378477148	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+45	200	7862847378477148	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	136	7862847524189222	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	136	7862847524189222	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+50	212	7862852871293411	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+50	212	7862852871293411	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+42	205	7862853246858265	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+42	205	7862853246858265	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+28	159	7862853415753253	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+28	159	7862853415753253	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+57	247	7862857950688543	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+57	247	7862857950688543	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	136	7862858120859882	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	136	7862858120859882	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+79	351	7862860840881412	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+79	351	7862860840881412	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+57	300	7862861077196500	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+57	300	7862861077196500	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	161	7862861265562888	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+27	161	7862861265562888	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+75	332	7862866939594153	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+75	332	7862866939594153	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+34	191	7862867196484090	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+34	191	7862867196484090	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+104	331	7862881785640062	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+104	331	7862881785640062	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+37	230	7862882088499179	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+37	230	7862882088499179	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+79	307	7862887300832535	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+79	307	7862887300832535	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	160	7862887497996855	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	160	7862887497996855	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+53	245	7862891576710880	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+53	245	7862891576710880	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	240	7862891776049250	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+39	240	7862891776049250	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+65	234	7862903834392087	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+65	234	7862903834392087	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	138	7862903991004716	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d
+24	138	7862903991004716	C:/Users/flivs/Documents/IngenieriaMecatronica/NovenoSemestre/Proyectos mecatronicos/ProyectoBascula/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	799f646c65d88e2d

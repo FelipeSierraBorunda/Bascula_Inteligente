@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EE59F2238A7F7EEEE766800 /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62C58A925C4556884EBEED0 /* Alimentos.swift */; };
+		17C34F641C31739E753A2418 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DDADEDBE19B470FB1171B /* ContentView.swift */; };
+		1D602486720B338573E2AB51 /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62C58A925C4556884EBEED0 /* Alimentos.swift */; };
+		32E61012449CB8C56F477B16 /* NutriGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F604E7FBADB0F5173C27BE2 /* NutriGoApp.swift */; };
+		794C4739429052E5422E406A /* BasculaBLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C68D862512E7A8F74FE8DD /* BasculaBLE.swift */; };
+		95931499DD62E8C516108ACE /* NutriGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F604E7FBADB0F5173C27BE2 /* NutriGoApp.swift */; };
+		A246E088909C084E89205551 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DDADEDBE19B470FB1171B /* ContentView.swift */; };
+		B72CBD40CD58E9EA6D3DF2DB /* NutriGo.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = 8DD77D8E63568FB7917035E7 /* NutriGo.xcodeproj */; };
+		DB40F6C681974AE7E540D3C0 /* NutriGo.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = 8DD77D8E63568FB7917035E7 /* NutriGo.xcodeproj */; };
+		FA42F02DFDF17B7373E1287D /* BasculaBLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C68D862512E7A8F74FE8DD /* BasculaBLE.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0429235803C641F33B9B0A6D /* NutriGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2453A53AFCB0992D76E1ED4A /* NutriGoiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriGoiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F604E7FBADB0F5173C27BE2 /* NutriGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriGoApp.swift; sourceTree = "<group>"; };
+		8DD77D8E63568FB7917035E7 /* NutriGo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = NutriGo.xcodeproj; sourceTree = "<group>"; };
+		8F4DDADEDBE19B470FB1171B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B0C68D862512E7A8F74FE8DD /* BasculaBLE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasculaBLE.swift; sourceTree = "<group>"; };
+		E62C58A925C4556884EBEED0 /* Alimentos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		40AAF8D8B3ED668816125091 = {
+			isa = PBXGroup;
+			children = (
+				8A3B071BFDB0A23FF564ABC7 /* NutriGoMac */,
+				E0F1EA7E938EBA68DD724B13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8A3B071BFDB0A23FF564ABC7 /* NutriGoMac */ = {
+			isa = PBXGroup;
+			children = (
+				E62C58A925C4556884EBEED0 /* Alimentos.swift */,
+				B0C68D862512E7A8F74FE8DD /* BasculaBLE.swift */,
+				8F4DDADEDBE19B470FB1171B /* ContentView.swift */,
+				8DD77D8E63568FB7917035E7 /* NutriGo.xcodeproj */,
+				3F604E7FBADB0F5173C27BE2 /* NutriGoApp.swift */,
+			);
+			name = NutriGoMac;
+			path = .;
+			sourceTree = "<group>";
+		};
+		E0F1EA7E938EBA68DD724B13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0429235803C641F33B9B0A6D /* NutriGo.app */,
+				2453A53AFCB0992D76E1ED4A /* NutriGoiPhone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3A741C830ADDC8E00A5D593 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C13BB9CF82226EFEACC77620 /* NutriGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E69CA0527C0E4BA41A97D5F3 /* Build configuration list for PBXNativeTarget "NutriGo" */;
+			buildPhases = (
+				E05F887031F224C30D15C242 /* Sources */,
+				AE33E28C36A61D6AA184D5C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NutriGo;
+			packageProductDependencies = (
+			);
+			productName = NutriGo;
+			productReference = 0429235803C641F33B9B0A6D /* NutriGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8504BE58881BE5D5E0B6598 /* NutriGoiPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4567B4C75A3FAB83AF6DBE26 /* Build configuration list for PBXNativeTarget "NutriGoiPhone" */;
+			buildPhases = (
+				6194283D1AF53546D074771A /* Sources */,
+				79F608A62C053580BFA2941E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NutriGoiPhone;
+			packageProductDependencies = (
+			);
+			productName = NutriGoiPhone;
+			productReference = 2453A53AFCB0992D76E1ED4A /* NutriGoiPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A152663740D956322186210 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C13BB9CF82226EFEACC77620 = {
+						ProvisioningStyle = Automatic;
+					};
+					C8504BE58881BE5D5E0B6598 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8446F9B253E495CDB696E0F4 /* Build configuration list for PBXProject "NutriGo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 40AAF8D8B3ED668816125091;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E0F1EA7E938EBA68DD724B13 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F3A741C830ADDC8E00A5D593 /* Products */;
+					ProjectRef = 8DD77D8E63568FB7917035E7 /* NutriGo.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C13BB9CF82226EFEACC77620 /* NutriGo */,
+				C8504BE58881BE5D5E0B6598 /* NutriGoiPhone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79F608A62C053580BFA2941E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B72CBD40CD58E9EA6D3DF2DB /* NutriGo.xcodeproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE33E28C36A61D6AA184D5C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB40F6C681974AE7E540D3C0 /* NutriGo.xcodeproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6194283D1AF53546D074771A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EE59F2238A7F7EEEE766800 /* Alimentos.swift in Sources */,
+				FA42F02DFDF17B7373E1287D /* BasculaBLE.swift in Sources */,
+				17C34F641C31739E753A2418 /* ContentView.swift in Sources */,
+				95931499DD62E8C516108ACE /* NutriGoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F887031F224C30D15C242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D602486720B338573E2AB51 /* Alimentos.swift in Sources */,
+				794C4739429052E5422E406A /* BasculaBLE.swift in Sources */,
+				A246E088909C084E89205551 /* ContentView.swift in Sources */,
+				32E61012449CB8C56F477B16 /* NutriGoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0B6FECB36937E95F61702650 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7FC58F956E10BE6558DB1E69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		838621445AEA69FBD34216D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NutriGo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 72MQK38R7R;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesierra.NutriGo;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A88B7B73351FF393485C7310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NutriGo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 72MQK38R7R;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesierra.NutriGo;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C54F5001B7C07FF5E4003B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 72MQK38R7R;
+				INFOPLIST_FILE = InfoiOS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesierra.NutriGoiPhone;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F59293FBD557BEB03F4D825A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 72MQK38R7R;
+				INFOPLIST_FILE = InfoiOS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesierra.NutriGoiPhone;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4567B4C75A3FAB83AF6DBE26 /* Build configuration list for PBXNativeTarget "NutriGoiPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F59293FBD557BEB03F4D825A /* Debug */,
+				C54F5001B7C07FF5E4003B38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8446F9B253E495CDB696E0F4 /* Build configuration list for PBXProject "NutriGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B6FECB36937E95F61702650 /* Debug */,
+				7FC58F956E10BE6558DB1E69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E69CA0527C0E4BA41A97D5F3 /* Build configuration list for PBXNativeTarget "NutriGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88B7B73351FF393485C7310 /* Debug */,
+				838621445AEA69FBD34216D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A152663740D956322186210 /* Project object */;
+}

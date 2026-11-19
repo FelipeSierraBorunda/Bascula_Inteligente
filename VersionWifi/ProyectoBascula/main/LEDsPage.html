@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Báscula de salud — ESP32</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+  /* ===================== GENERALES CSS ===================== */
+  body{
+  font-family: system-ui;
+  color: black;
+
+  margin: 0;
+  min-height: 100vh;
+
+  background:#f5f7fa;
+
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: flex-start;   /* arriba; si quieres al centro pon 'center' */
+
+  padding: 20px 0;           /* solo arriba/abajo, nada a los lados */
+}
+
+  /* ===================== LAYOUT / CONTENEDORES ===================== */
+  .FormatoHorizontal{
+    display: flex;
+    flex-direction: row;          
+    align-items: center;                
+    justify-content: space-between;     
+    gap: 10px;                          
+  }
+
+  .FormatoHorizontal2{
+    padding: 12px;
+    display: flex;
+    flex-direction: row;          
+    align-items: center;                
+    justify-content: space-between;     
+    gap: 10px;                          
+  }
+
+  /* Seccion botones*/
+  .FormatoHorizontal3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;     /* separación visual elegante */
+    margin-top: 12px;
+}
+
+
+ .MainContainer{
+  background:white;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+  width: 100%;
+  max-width: 360px;          /* ancho fijo, centrado */
+
+  border-radius:16px;
+  padding: 30px;
+  box-sizing: border-box;
+
+  text-align:center;
+  margin: 0 auto;            /* por si acaso, refuerza el centrado */
+}
+
+  /* ===================== COMPONENTES AUXILIARES ===================== */
+  .EspacioComponentes{
+    padding: 4px;
+  }
+
+  /* ===================== BOTONES ===================== */
+  #BotonAdministrador{
+    font-weight: bold;     
+    border-color: transparent;
+    background-color: #78A17C;
+    color: white;
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 16px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;
+  }
+
+#BotonTara,
+#BotonConsumir,
+#BotonGuardar {
+    font-weight: 600;
+    font-size: 14px;
+
+    /* Tamaño balanceado */
+    width: 90px;          
+    padding: 8px 0;       
+
+    border: none;
+    background-color: #78A17C;
+    color: white;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    cursor: pointer;
+
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+/* Animación al presionar */
+#BotonTara:active,
+#BotonConsumir:active,
+#BotonGuardar:active {
+    transform: scale(0.94);
+}
+
+  #btnConfig{
+    font-weight: bold;
+    border: none;
+    background-color: #78A17C;
+    color: white;
+    padding: 6px 20px;       
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    cursor: pointer;
+    font-size: 25px;
+    height:30px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ===================== TEXTO Y ENCABEZADOS ===================== */
+  #LetrasGramos{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 15px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #maintittle{
+    color: #78A17C;
+  }
+
+  /* ===================== BATERÍA ===================== */
+  .bateria-alta{
+    background: #43a047;
+    width: 80%;
+  }
+
+  .bateria-baja{
+    background: #e53935;
+    width: 20%;
+  }
+
+  .bateria-cargando{
+    background: transparent;
+    animation: cargaBateria 1.5s linear infinite alternate;
+    box-shadow: 0 0 0 0 #1b5e20 inset;
+  }
+
+  .bateria-cargando::after{
+    content: "\26A1\FE0E";
+    position: absolute;
+    left:40%;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    transform: translateY(-50%);
+    color: white;                    
+    font-size: 10px;
+    pointer-events: none;
+  }
+
+  .bateria-full{
+    background: transparent;
+    animation: cargaBateria2 1.5s linear infinite alternate;
+    box-shadow: 0 0 0 0 #1b5e20 inset;
+  }
+
+  .bateria-full::after{
+    content: "\26A1\FE0E";
+    position: absolute;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    transform: translateY(-50%);
+    color: white;                    
+    font-size: 10px;
+    pointer-events: none;
+  }
+
+  .bateria-media{
+    background: #fdd835;
+    width: 50%;
+  }
+
+  .bateria-neutra{
+    background: wheat;
+    width: 20%;
+  }
+
+  .Contornobateria{
+    position: relative;
+    background-color: transparent;
+    border: 2px solid #333;
+    box-sizing: border-box;
+    height: 18px;
+    width: 36px;
+    border-radius: 4px;
+    padding: 1.5px;
+  }
+
+  .Contornobateria::after{
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: #333;
+  }
+
+  #batt-val{
+    position: relative;
+    height: 100%;
+    border-radius: 0px;
+    overflow: hidden;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  @keyframes cargaBateria {
+    0%{
+      box-shadow: 5px 0px 0 0 #fdd835 inset;
+    }
+    100%{
+      box-shadow: 27px 0px 0 0 #43a047 inset;
+    }
+  }
+
+  @keyframes cargaBateria2 {
+    0%{
+      box-shadow: 5px 0px 0 0 #43a047 inset;
+    }
+    100%{
+      box-shadow: 27px 0px 0 0 #1b5e20 inset;
+    }
+  }
+
+ .Horizontal{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+  .Horizontal > div{
+    flex: 1;
+    text-align: center;
+  }
+
+  .Vertical{
+    display: flex;
+    padding: 10px;
+    flex-direction:column;          
+    align-items: center;
+    justify-content: space-between;
+    gap: 0px;  
+  }
+
+  #bold{
+    font-weight: bold;
+  }
+
+  
+.MenuConfig{
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+  padding: 10px 12px;
+  display: none;
+  z-index: 50;
+
+  min-width: 190px;
+  font-size: 13px;
+
+  display: none;          /* la sigues controlando con JS */
+  box-sizing: border-box;
+}
+
+/* Título del menú */
+.MenuHeader{
+  font-weight: 600;
+  font-size: 13px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+/* Botón Administrador dentro del menú */
+.MenuAdmin{
+  display: block;
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f4f6;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.MenuAdmin:hover{
+  background: #e5f2ea;        /* verde muy suave */
+}
+
+/* Línea divisora suave */
+.MenuDivider{
+  height: 1px;
+  background: #e5e7eb;
+  margin: 4px 0 6px 0;
+}
+
+/* Filas de “Unidad” y “Decimales” */
+.MenuRow{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.MenuRow label{
+  font-size: 12px;
+  color: #4b5563;
+}
+
+/* Selects más limpios y compactos */
+.MenuRow select{
+  width: 100%;
+  padding: 4px 6px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  background: #f9fafb;
+  outline: none;
+}
+
+.MenuRow select:focus{
+  border-color: #78A17C;
+  box-shadow: 0 0 0 1px rgba(120,161,124,0.35);
+}
+
+  .MenuItem{
+    display: block;
+    width: 100%;
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+ #Buscador{
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  border-radius: 12px;
+  height: 45px;
+
+  width: 100%;                 /* ocupa todo el ancho del MainContainer */
+  max-width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
+
+  border: 1px solid #e2e2e2;
+  margin-top: 8px;
+}
+
+.Horizontal{
+    display: flex;
+    flex-direction: row;          
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+#BotonLupa{
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #78A17C;
+  color: white;
+
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+#BotonLupa:active{
+  transform: scale(0.90);
+}
+
+#SelAl{
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+}
+
+  .MenuItem:hover{
+    background: #f0f2f5;
+  }
+  .Espacio{
+    height: 20px;
+  }
+ 
+/* Texto kcal */
+#kcaldiarias{
+  font-weight: bold;
+}
+
+/* Contenedor general de la barra + texto */
+#EspacioCalorias{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;            /* igual que el buscador */
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+/* Pista de la barra */
+/* Pista de la barra */
+#BarraCalorias{
+  flex: 1;
+  height: 12px;
+  background: #e4e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Relleno de la barra (progreso real) */
+#TotalCalorias{
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #78A17C, #f2c94c, #eb5757);
+  transition: width 0.3s ease-out;
+}
+
+
+/* Texto "XXXX/2600 kcal" a la derecha */
+#cont-kcal {
+  white-space: nowrap;         /* evita que haga salto de línea raro */
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#adminmini{
+  background-color: white;
+  border-color: white;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="MainContainer">
+    <!-- ================= TÍTULO Y SUBTÍTULO ================= -->
+    <div class="FormatoHorizontal">
+      <h1 id="maintittle">NutriGo</h1>
+      <div class="Contornobateria">
+        <div id="batt-val"></div>
+      </div>
+    </div>
+
+    
+
+    <div class="Horizontal" id="Buscador">
+      <button id="BotonLupa" onclick="location.href='/alimentos'">⌕</button>
+      <div><span id="SelAl">Seleccionar alimento</span></div>
+    </div>
+
+   <div class="Espacio"> </div>
+<div id="EspacioCalorias">
+  <div id="BarraCalorias">
+    <div id="TotalCalorias"></div>
+  </div>
+  <div id="cont-kcal">
+    <span id="kcaldiarias">--/--</span> kcal
+  </div>
+</div>
+
+    <!-- ================= LECTURA DE PESO ================= -->
+    <div id="LetrasGramos">
+      <span id="val"> -- </span>
+      <span id="unit">g</span>
+    </div>
+    
+    <!-- ================= MACROS ================= -->
+    <div class="Vertical">
+      <div class="Horizontal" id="bold">
+        <div>Grasa</div>
+        <div>Carbh</div>
+        <div>Prot</div>
+        <div>Calorías</div>
+      </div>
+      <div class="Horizontal">
+        <div><span id="fatVal">--</span> g</div>
+        <div><span id="carbVal">--</span> g</div>
+        <div><span id="protVal">--</span> g</div>
+        <div><span id="kcalVal">--</span> kcal</div>
+      </div>
+    </div>
+
+    <!-- ================= BOTÓN DE TARA ================= -->
+    <div class="FormatoHorizontal3">
+      <div class="EspacioComponentes">
+        <button onclick="hacerTara()" id="BotonTara">Tara</button>
+      </div>
+      <div class="EspacioComponentes">
+        <button onclick="hacerGuardar()" id="BotonGuardar">Guardar</button>
+      </div>
+       <div class="EspacioComponentes">
+    <button onclick="hacerConsumir()" id="BotonConsumir">Consumir</button>
+  </div>
+    </div>
+    
+    <!-- ================= ESTADO ================= -->
+    <div id="status">Lectura actualizada</div>
+  </div> <!-- Cierre de MainContainer -->
+
+  <div>
+  <button id="btnConfig">⚙︎</button>
+
+  <div id="menuConfig" class="MenuConfig">
+    <div class="MenuHeader">Configuración</div>
+
+    <button onclick="location.href='/admin'" id="adminmini" class="MenuAdmin">
+      Administrador
+    </button>
+
+    <div class="MenuDivider"></div>
+
+    <div class="MenuRow">
+      <label for="unidad">Unidad</label>
+      <select id="unidad">
+        <option value="g" selected>Gramos (g)</option>
+        <option value="kg">Kilogramos (kg)</option>
+        <option value="lb">Libras (lb)</option>
+      </select>
+    </div>
+
+    <div class="MenuRow">
+      <label for="decimales">Decimales</label>
+      <select id="decimales">
+        <option value="0"selected>0</option>
+        <option value="1">1</option>
+        <option value="2" >2</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+  <button onclick="location.href='/Personal'" id="BotonAdministrador"> Personal </button>
+
+  <!-- ================= SCRIPT PRINCIPAL ================= -->
+  <script>
+
+    let META_KCAL = 2600;  // ajusta este valor a tu meta diaria
+
+
+    // ===== Configuración del menú =====
+    const btnConfig   = document.getElementById('btnConfig');
+    const menuConfig  = document.getElementById('menuConfig');
+
+    btnConfig.addEventListener('click', () => {
+      const visible = menuConfig.style.display === 'block';
+      menuConfig.style.display = visible ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuConfig.contains(e.target) && e.target !== btnConfig) {
+        menuConfig.style.display = 'none';
+      }
+    });
+
+    // ===== Estado UI =====
+    let ultimoGramos = null;
+    let ValorBateria = null;
+
+    function gTo(unit, g){
+      switch(unit){
+        case 'kg': return g / 1000;
+        case 'lb': return g * 0.00220462262;
+        default:   return g;
+      }
+    }
+
+    function render(){
+      const unitSel = document.getElementById('unidad').value;
+      const dec = parseInt(document.getElementById('decimales').value, 10);
+      const out = document.getElementById('val');
+      const unitLbl = document.getElementById('unit');
+
+      if(ultimoGramos === null){
+        out.textContent = '--';
+      } else {
+        out.textContent = gTo(unitSel, ultimoGramos).toFixed(dec);
+      }
+
+      unitLbl.textContent = unitSel;
+    }
+
+    function renderBateria(){
+      const iconobateria = document.getElementById('batt-val');
+      if (!iconobateria) return;
+
+      if (ValorBateria === null) {
+        iconobateria.className = 'bateria-neutra';
+        return;
+      }
+
+      iconobateria.classList.remove(
+        'bateria-alta',
+        'bateria-media',
+        'bateria-baja',
+        'bateria-full',
+        'bateria-cargando',
+        'bateria-neutra'
+      );
+
+      switch (ValorBateria) {
+        case 2:
+          iconobateria.classList.add('bateria-media');
+          break;
+        case 3:
+          iconobateria.classList.add('bateria-alta');
+          break;
+        case 4:
+          iconobateria.classList.add('bateria-cargando');
+          break;
+        case 5:
+          iconobateria.classList.add('bateria-full');
+          break;
+        default:
+          iconobateria.classList.add('bateria-baja');
+          break;
+      }
+    }
+
+    // ===== Comunicación con el ESP32 =====
+function fetchPerfilUsuario() {
+  fetch('/perfilUsuario', { cache: 'no-store' })
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP');
+      return r.json();
+    })
+    .then(data => {
+      console.log('Perfil usuario (index):', data);
+
+      if (Number.isFinite(Number(data.meta_kcal))) {
+        META_KCAL = Number(data.meta_kcal);  // ← actualizar meta global
+        // Opcional: refrescar de inmediato las calorías con la nueva meta
+        fetchCalorias();
+      }
+    })
+    .catch(err => {
+      console.error('Error /perfilUsuario:', err);
+      // Si falla, se queda el META_KCAL por defecto (2600)
+    });
+}
+
+
+    function fetchPeso(){
+      fetch('/peso', {cache:'no-store'})
+        .then(r => {
+          if(!r.ok) throw new Error('HTTP');
+          return r.text();
+        })
+        .then(txt => {
+          const v = parseFloat(txt);
+          if(!Number.isFinite(v)) throw new Error('NaN');
+
+          ultimoGramos = v;
+          render();
+          ok('Lectura actualizada');
+        })
+        .catch(() => err('Dispositivo desconectado'));
+
+      setTimeout(fetchPeso, 400);
+    }
+
+  function fetchCalorias() {
+  fetch('/caloriasDiarias', { cache: 'no-store' })
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP');
+      return r.json();
+    })
+    .then(data => {
+      console.log("Calorías diarias:", data);
+
+      const total = Number(data.kcal);
+      if (!Number.isFinite(total)) return;
+
+      // Por si la meta es 0 o no ha llegado aún el perfil:
+      const meta = META_KCAL > 0 ? META_KCAL : 2600;
+
+      // 1) Porcentaje respecto a la meta
+      let porcentaje = (total / meta) * 100;
+      if (porcentaje < 0) porcentaje = 0;
+      if (porcentaje > 100) porcentaje = 100;
+
+      // 2) Actualizar barra
+      const barra = document.getElementById('TotalCalorias');
+      if (barra) {
+        barra.style.width = porcentaje.toFixed(1) + '%';
+      }
+
+      // 3) Texto "XXXX/meta"
+      const totalKcalEl = document.getElementById('kcaldiarias');
+      if (totalKcalEl) {
+        const totalRedondeado = Math.round(total);
+        totalKcalEl.textContent = `${totalRedondeado}/${Math.round(meta)}`;
+      }
+    })
+    .catch(err => console.error("Error /caloriasDiarias:", err));
+}
+
+
+
+    function fetchBateria(){
+      fetch('/NivelBateria', {cache:'no-store'})
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP');
+          return r.text();
+        })
+        .then(txt => {
+          const v = parseInt(txt, 10);
+          if (!Number.isFinite(v)) throw new Error('NaN');
+
+          ValorBateria = v;
+          renderBateria();
+        })
+        .catch(() => {
+          ValorBateria = null;
+          renderBateria();
+        });
+    }
+
+    // ================= ALIMENTO SELECCIONADO =================
+    function fetchAlimentoSeleccionado(){
+      fetch('/alimentoSeleccionado', {cache: 'no-store'})
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP');
+          return r.json();
+        })
+        .then(data => {
+          if (!data.valido) {
+            console.log('No hay alimento seleccionado aún');
+            return;
+          }
+
+          console.log('Alimento desde ESP:', data);
+          
+          document.getElementById('SelAl').textContent  = data.nombre;
+          document.getElementById('fatVal').textContent  = data.grasa;
+          document.getElementById('carbVal').textContent = data.carb;
+          document.getElementById('protVal').textContent = data.prote;
+          document.getElementById('kcalVal').textContent = data.kcal;
+        })
+        .catch(err => {
+          console.error('Error leyendo alimento seleccionado:', err);
+        });
+    }
+
+    function hacerTara(){
+      fetch('/Tara', {cache:'no-store'})
+        .then(()=>ok('Tara realizada'))
+        .catch(()=>err('No se pudo realizar la tara'));
+    }
+
+    function hacerGuardar(){
+  fetch('/GuardarAlimento', {cache:'no-store'})
+    .then(()=>{
+      ok('Se ha guardado el alimento');
+      fetchCalorias();  // fuerza refresco inmediato
+    })
+    .catch(()=>err('No se ha podido guardar el alimento'));
+  }
+  function hacerConsumir(){
+  // Modo “jalea”: usa el peso actual (negativo) como porción consumida
+  fetch('/ConsumirNegativo', {cache:'no-store'})
+    .then(()=>{
+      ok('Porción registrada');
+      fetchCalorias();      // actualiza la barra y el total
+      fetchAlimentoSeleccionado(); // por si quieres refrescar macros actuales
+    })
+    .catch(()=>err('No se pudo registrar la porción'));
+}
+
+
+
+    function setStatus(msg){
+      const el = document.getElementById('status');
+      el.textContent = msg;
+    }
+    const ok  = (m)=>setStatus(m);
+    const err = (m)=>setStatus(m);
+
+    // ===== Eventos =====
+    document.getElementById('unidad').addEventListener('change', render);
+    document.getElementById('decimales').addEventListener('change', render);
+
+    // ===== Inicio =====
+    window.addEventListener('load', () => {
+    render();
+    renderBateria();
+    fetchPeso();
+
+    // Primero intentamos obtener la meta desde el perfil
+    fetchPerfilUsuario();
+
+    // Lectura de calorías (se refrescará otra vez cuando llegue el perfil)
+    fetchCalorias();
+    setInterval(fetchCalorias, 1200);
+    fetchAlimentoSeleccionado();
+    setInterval(fetchAlimentoSeleccionado, 400);
+    fetchBateria();
+    setInterval(fetchBateria, 1000);
+  });
+
+  </script>
+</body>
+</html>

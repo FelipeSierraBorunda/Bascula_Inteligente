@@ -1,0 +1,18 @@
+/* LEDsPage.css: estilos base mínimos */
+
+body {
+  margin: 10px;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+.container {
+  max-width: 480px;
+}
+
+.reading {
+  font-size: 2.5rem;
+}
+
+.status {
+  font-size: 0.9rem;
+}

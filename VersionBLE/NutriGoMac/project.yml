@@ -1,0 +1,85 @@
+name: NutriGo
+options:
+  bundleIdPrefix: com.felipesierra
+  deploymentTarget:
+    macOS: "13.0"
+    iOS: "16.0"
+settings:
+  base:
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+targets:
+  NutriGo:
+    type: application
+    platform: macOS
+    sources:
+      - path: .
+        excludes:
+          - project.yml
+          - README_XCODE.md
+          - Info.plist
+          - InfoiOS.plist
+          - NutriGo.entitlements
+    info:
+      path: Info.plist
+      properties:
+        CFBundleName: NutriGo
+        CFBundleDisplayName: NutriGo
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSMinimumSystemVersion: "13.0"
+        NSBluetoothAlwaysUsageDescription: "Conectar con la báscula NutriGo por Bluetooth."
+    entitlements:
+      path: NutriGo.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.device.bluetooth: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.felipesierra.NutriGo
+
+  NutriGoiPhone:
+    type: application
+    platform: iOS
+    sources:
+      - path: .
+        excludes:
+          - project.yml
+          - README_XCODE.md
+          - Info.plist
+          - InfoiOS.plist
+          - NutriGo.entitlements
+    info:
+      path: InfoiOS.plist
+      properties:
+        CFBundleName: NutriGo
+        CFBundleDisplayName: NutriGo
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        MinimumOSVersion: "16.0"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSBluetoothAlwaysUsageDescription: "Conectar con la báscula NutriGo por Bluetooth."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.felipesierra.NutriGoiPhone
+        TARGETED_DEVICE_FAMILY: "1,2"
+schemes:
+  NutriGo:
+    build:
+      targets:
+        NutriGo: all
+    run:
+      config: Debug
+  NutriGoiPhone:
+    build:
+      targets:
+        NutriGoiPhone: all
+    run:
+      config: Debug

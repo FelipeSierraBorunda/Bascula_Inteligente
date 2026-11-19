@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Báscula ESP32 — Administrador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ====== GENERALES ====== */
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    /* ====== CONTENEDOR TIPO "MOLDE" ====== */
+    .AdminContainer {
+      max-width: 480px;
+      width: 100%;
+      height: 85vh;         /* ocupa ~85% del alto de pantalla */
+      overflow: hidden;     /* el contenido no se sale del cuadro */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 70px;  /* espacio para el botón flotante "Regresar" */
+    }
+
+    /* Zona desplazable dentro del contenedor */
+    .AdminScroll {
+      flex: 1;
+      overflow-y: auto;     /* aquí sucede el scroll interno */
+      padding-bottom: 8px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .row {
+      margin: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .label {
+      font-weight: 600;
+    }
+    .value {
+      font-family: "Courier New", monospace;
+      margin-left: 6px;
+    }
+    .divider {
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 2px solid #ddd;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #444;
+    }
+    .small {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Botón flotante fijo (fuera del molde) */
+    .return-btn {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+    .return-btn:hover {
+      background-color: #c82333;
+      transform: translateY(-2px) scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MOLDE FIJO + CONTENIDO DESLIZABLE -->
+  <div class="AdminContainer">
+    <div class="AdminScroll">
+
+      <h1>Panel de administración</h1>
+
+      <div class="card">
+
+        <!-- ================= BATERÍA ================= -->
+        <div class="divider">Batería</div>
+        <div class="row"><span class="label">ADC batería:</span><span class="value" id="batt_raw">--</span></div>
+        <div class="row"><span class="label">Voltaje ADC:</span><span class="value" id="batt_vadc">--</span></div>
+        <div class="row"><span class="label">Voltaje batería:</span><span class="value" id="batt_vbat">--</span></div>
+
+        <!-- ================= DIAGNÓSTICO HX711 ================= -->
+        <div class="divider">Diagnóstico del sensor (HX711)</div>
+        <div class="row"><span class="label">Peso actual:</span><span class="value" id="peso">--</span></div>
+        <div class="row"><span class="label">Crudo:</span><span class="value" id="diag_crudo">--</span></div>
+        <div class="row"><span class="label">Ajustado:</span><span class="value" id="diag_ajustado">--</span></div>
+        <div class="row"><span class="label">Offset:</span><span class="value" id="diag_offset">--</span></div>
+        <div class="row"><span class="label">Ref. calibración:</span><span class="value" id="diag_ref">--</span></div>
+        <div class="row"><span class="label">Calibrado:</span><span class="value" id="diag_calibrado">--</span></div>
+        <div class="row"><span class="label">Ruido:</span><span class="value" id="diag_ruido">--</span></div>
+        <div class="row"><span class="label">Estabilidad:</span><span class="value" id="diag_estable">--</span></div>
+
+        <!-- ================= INFORMACIÓN DEL ALIMENTO ================= -->
+        <div class="divider">Alimento actual</div>
+        <div class="row"><span class="label">Nombre:</span><span class="value" id="diag_alimento">--</span></div>
+
+        <!-- ================= ESTADO DEL SISTEMA ================= -->
+        <div class="divider">Estado del sistema</div>
+        <div class="row"><span class="label">Nivel batería:</span><span class="value" id="diag_nivelbat">--</span></div>
+        <div class="row"><span class="label">Clientes conectados:</span><span class="value" id="diag_clientes">--</span></div>
+        <div class="row"><span class="label">Ram libre:</span><span class="value" id="diag_heap_actual">--</span></div>
+        <div class="row"><span class="label">Total:</span><span class="value" id="diag_heap_total">--</span></div>
+        <div class="row">
+          <span class="label">Disponible (%):</span>
+          <span class="value" id="diag_heap_pct">--</span>
+        </div>
+        <div class="row"><span class="label">Uptime (s):</span><span class="value" id="diag_uptime">--</span></div>
+        <div class="row"><span class="label">Firmware:</span><span class="value" id="diag_fw">--</span></div>
+
+        <!-- ================= PERFIL DE USUARIO ================= -->
+        <div class="divider">Perfil de usuario</div>
+        <div class="row"><span class="label">Nombre:</span> <span class="value" id="perfil_nombre">--</span></div>
+        <div class="row"><span class="label">Sexo:</span><span class="value" id="perfil_sexo">--</span></div>
+        <div class="row"><span class="label">Edad:</span><span class="value" id="perfil_edad">--</span></div>
+        <div class="row"><span class="label">Altura:</span><span class="value" id="perfil_altura">--</span></div>
+        <div class="row"><span class="label">Peso:</span><span class="value" id="perfil_peso">--</span></div>
+        <div class="row"><span class="label">Objetivo:</span><span class="value" id="perfil_objetivo">--</span></div>
+        <div class="row"><span class="label">Meta kcal:</span><span class="value" id="perfil_meta_kcal">--</span></div>
+
+        <!-- ================= MACROS DIARIOS ================= -->
+        <div class="divider">Macros diarios</div>
+        <div class="row"><span class="label">Items:</span><span class="value" id="itemsDiarios">--</span></div>
+        <div class="row"><span class="label">Grasa:</span><span class="value" id="grasaDiarias">--</span></div>
+        <div class="row"><span class="label">Proteína:</span><span class="value" id="proteDiarias">--</span></div>
+        <div class="row"><span class="label">Carbohidratos:</span><span class="value" id="carbDiarias">--</span></div>
+        <div class="row"><span class="label">Calorías:</span><span class="value" id="kcalDiarias">--</span></div>
+
+        <div class="small" id="estado">Actualizando...</div>
+
+        <button id="btnReset" style="
+          width:100%; background:#d9534f; color:white;
+          border:none; padding:10px; border-radius:8px; margin-top:15px;">
+          Reiniciar calorías del día
+        </button>
+
+      </div> <!-- /.card -->
+
+    </div> <!-- /.AdminScroll -->
+  </div> <!-- /.AdminContainer -->
+
+  <!-- Botón flotante que ya no tapa el contenido porque el molde deja espacio -->
+  <button class="return-btn" onclick="window.location.href='/'">Regresar</button>
+
+<script>
+function setText(id, v) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = (v !== undefined && v !== null) ? v : '--';
+}
+
+function fetchDiagnostico() {
+  fetch('/diagnostico', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(d => {
+      setText('diag_crudo', d.peso_crudo);
+      setText('diag_ajustado', d.peso_ajustado);
+      setText('diag_offset', d.offset);
+      setText('diag_ref', d.lecturaRef);
+      setText('diag_calibrado', d.calibrado ? "Sí" : "No");
+      setText('diag_ruido', d.ruido);
+      setText('diag_estable', d.estable ? "Sí" : "No");
+      setText('diag_alimento', d.alimento);
+      setText('diag_nivelbat', d.bateria_nivel);
+      setText('diag_clientes', d.clientes);
+      setText('diag_heap', d.heap);
+      setText('diag_uptime', d.uptime);
+      setText('diag_fw', d.firmware);
+      setText('diag_heap_actual', d.heap_actual);
+      setText('diag_heap_total', d.heap_total);
+      setText('diag_heap_pct', d.heap_pct + "%");
+    });
+}
+
+function fetchPerfilUsuario() {
+  fetch('/perfilUsuario', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(p => {
+      setText('perfil_nombre', p.nombre);
+      setText('perfil_sexo', p.sexo);
+      setText('perfil_edad', p.edad);
+      setText('perfil_altura', p.altura_cm);
+      setText('perfil_peso', p.peso_kg);
+      setText('perfil_objetivo', p.objetivo);
+      setText('perfil_meta_kcal', p.meta_kcal);
+    });
+}
+
+function fetchCalorias() {
+  fetch('/caloriasDiarias', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(c => {
+      setText('itemsDiarios', c.items);
+      setText('grasaDiarias', c.grasa);
+      setText('proteDiarias', c.prote);
+      setText('carbDiarias', c.carb);
+      setText('kcalDiarias', c.kcal);
+    });
+}
+
+function actualizar() {
+  fetchDiagnostico();
+  fetchPerfilUsuario();
+  fetchCalorias();
+
+  fetch('/peso').then(r=>r.text()).then(v=>setText('peso', v));
+  fetch('/bateria_raw').then(r=>r.text()).then(v=>setText('batt_raw',v));
+  fetch('/bateria_vadc').then(r=>r.text()).then(v=>setText('batt_vadc',v));
+  fetch('/bateria_vbat').then(r=>r.text()).then(v=>setText('batt_vbat',v));
+
+  setTimeout(actualizar, 1000);
+}
+
+document.getElementById('btnReset').onclick =
+  ()=>{ fetch('/resetCalorias').then(()=>alert("Calorías reiniciadas")); };
+
+window.onload = actualizar;
+</script>
+
+</body>
+</html>
